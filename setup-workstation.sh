@@ -103,4 +103,4 @@ rm -rf ~/dotfiles
 echo "dotfiles directory removed"
 echo "#################################"
 
-
+reset 
