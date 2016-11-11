@@ -5,8 +5,8 @@ echo "Welcome cumorris...setting up your workstation now..."
 echo "Installing your selected packages..."
 if [ -e /etc/redhat-release ]; then
 	echo "This appears to be a RedHat based Distro, continuing with that in mind..."
-	sudo yum update
-	sudo yum install -y epel-release conky vim openbox-libs htop screen git tint2 openbox gnome-terminal gnome-session 
+	sudo yum update -q
+	sudo yum install -qy epel-release conky vim openbox-libs htop screen git tint2 openbox gnome-terminal gnome-session 
 else 
 	echo "This is probably a debian based distro, continuing with that in mind..."
 	sudo apt-get update
@@ -27,17 +27,14 @@ else
 fi 
 
 echo "Let's get your SSH key from nagios"
-scp -C cumorris@nagios001.lcsee.wvu.edu:~/.ssh/identity ~/.ssh
+scp -qC cumorris@nagios001.lcsee.wvu.edu:~/.ssh/identity ~/.ssh
 
 echo "Setting permissions on your SSH Key"
 chmod 700 ~/.ssh/identity 
 
-echo "Adding your SSH key... Please Enter Your Password: "
-ssh-add ~/.ssh/identity 
-
 echo "Let's get your configuration files..."
 cd ~/
-git clone git@github.com:camarox53/dotfiles.git
+git clone -q git@github.com:camarox53/dotfiles.git
 
 echo "Copying your .files into place"
 
@@ -64,7 +61,7 @@ echo "Config files copied into place."
 
 echo "Starting tint2 taskbar"
 echo "A ctrl+c may be required..."
-pkill tint2 && tint2 & 
+pkill tint2 && tint2 & > ~/.cumorris_install.log 2>&1
 
 echo "Changing your display settings..."
 cat ~/dotfiles/dconf-config | dconf load /
@@ -73,4 +70,5 @@ echo "Display Settings Imported"
 echo "Removing dotfiles"
 rm -rf ~/dotfiles
 echo "dotfiles directory removed"
+
 
