@@ -57,17 +57,7 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-alias ssh-keys='cd /media/cumorris/cumorris/.ssh ; ssh-add identity'
-alias licsvn='svn co https://svn.lcsee.wvu.edu/oldcvs/trunk/sysstaff/ops/licenses'
-alias lds='ldapsearch -h ldap.corp.redhat.com -b "ou=groups,dc=redhat,dc=com" -x'
-alias shell='ssh -AXp 20110 cumorris@shell.lcsee.wvu.edu'
-alias tnode='ssh -AX tnode001'
-alias propshell='ssh -AXp 20110 cumorris@proprietary.lcsee.wvu.edu'
-alias lshelldap='unset DISPLAY && export EDITOR=emacs && lshelldap'
-alias ad-search="ldapsearch -xLL -h adbalanced.wvu.edu -b dc=wvu-ad,dc=wvu,dc=edu -D cumorris@wvu-ad.wvu.edu -W" #samaccountname=myid
-alias lpshell='ssh -AXp 20110 dmzlpreciseshell001' 
-alias clean='sudo rm *~'
-
+alias nagios='ssh -A cumorris@nagios001.lcsee.wvu.edu'
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -93,7 +83,7 @@ if ! shopt -oq posix; then
 fi
 
 ## Terminal Prompt
-PS1="\[\033[0;35m\][\w]\[\033[01;37m\]\$(parse_git_branch)\[\033[00m\]\[\033[1;33m\]\n\[\033[1;37m\]\u@\h\[\033[1;37m\]-> \[\033[1;33m\]"
+PS1="\[\033[0;34m\][\w]\[\033[01;37m\]\$(parse_git_branch)\[\033[00m\]\[\033[1;33m\]\n\[\033[1;37m\]\u@\h\[\033[1;37m\]-> \[\033[1;35m\]"
 
 # Git hacks 
 
@@ -106,11 +96,11 @@ function parse_git_branch {
 
 ## Debian Packages
 export EDITOR='vim'
-export DEBEMAIL='cmorris@mix.wvu.edu'
+export DEBEMAIL='cumorris@mix.wvu.edu'
 export DEBEDITOR='emacs -nw'
 export DEBFULLNAME="Cameron Morris" 
 
 ## Git Configs
-git config --global user.email "cmorris@redhat.com"
+git config --global user.email "cumorris@mix.wvu.edu"
 git config --global user.name "Cameron Morris"
 

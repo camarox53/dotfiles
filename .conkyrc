@@ -1,0 +1,89 @@
+background yes
+use_xft yes
+xftfont 123:size=8
+xftalpha 0.1
+update_interval 0.5
+total_run_times 0
+own_window yes
+own_window_type normal
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+double_buffer yes
+minimum_size 250 5
+maximum_width 400
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+default_color gray
+default_shade_color red
+default_outline_color green
+alignment top_right
+gap_x 10
+gap_y 10
+no_buffers no
+uppercase no
+cpu_avg_samples 2
+net_avg_samples 1
+override_utf8_locale yes
+use_spacer none
+text_buffer_size 256
+
+TEXT
+
+${font openlogos:size=15}${font Arial:size=15}${color Ivory}SystemsAdmin${color DeepSkyBlue} - Status Display${font openlogos:size=15}
+
+${voffset -90}
+${color DimGray}
+${font}
+${font Arial:bold:size=10}${color DeepSkyBlue}SYSTEM ${color DarkSlateGray} ${hr 2}
+$font${color DimGray}OS: ${exec cat /etc/redhat-release }
+Kernel: $kernel $alignr $machine
+CPU Speed $alignr${freq_g cpu0}Ghz
+Uptime $alignr${uptime}
+File System $alignr${fs_type}
+
+${font Arial:bold:size=10}${color DeepSkyBlue}PROCESSORS ${color DarkSlateGray}${hr 2}
+$font${color DimGray}CPU1  ${cpu cpu1}% ${cpubar cpu1}
+CPU2  ${cpu cpu2}% ${cpubar cpu2}
+
+${font Arial:bold:size=10}${color DeepSkyBlue}MEMORY ${color DarkSlateGray}${hr 2}
+$font${color DimGray}MEM $alignc $mem / $memmax $alignr $memperc%
+$membar
+$font${color DimGray}SWAP $alignc $swap / $swapmax $alignr $swapperc%
+$swapbar
+
+${font Arial:bold:size=10}${color DeepSkyBlue}HDD ${color DarkSlateGray}${hr 2}
+$font${color DimGray}/home $alignc ${fs_used /home} / ${fs_size /home} $alignr ${fs_free_perc /home}%
+${fs_bar /home}
+/disk $alignc ${fs_used /media} / ${fs_size /media} $alignr ${fs_free_perc /media}%
+${fs_bar /media}
+/lcseehome $alignc ${fs_used /lcseehome} / ${fs_size /lcseehome} $alignr ${fs_free_perc /lcseehome}%
+${fs_bar /lcseehome}
+
+${font Arial:bold:size=10}${color DeepSkyBlue}TOP PROCESSES ${color DarkSlateGray}${hr 2}
+${color DimGray}$font${top_mem name 2}${alignr}${top mem 2} %
+$font${top_mem name 3}${alignr}${top mem 3} %
+$font${top_mem name 4}${alignr}${top mem 4} %
+$font${top_mem name 5}${alignr}${top mem 5} %
+
+${font Arial:bold:size=10}${color DeepSkyBlue}NETWORK ${color DarkSlateGray}${hr 2}
+$font${color DimGray}IP $alignr ${addr enp0s3}
+
+Down $alignr ${downspeed enp0s3} kb/s
+Up $alignr ${upspeed enp0s3} kb/s
+
+Downloaded: $alignr  ${totaldown enp0s3}
+Uploaded: $alignr  ${totalup enp0s3}
+
+
+${font Arial:bold:size=10}${color DeepSkyBlue}USERS ${color DarkSlateGray}${hr 2}
+$font${color DimGray}Users Logged On: $alignr ${user_number} 
+$font${color DimGray}Users: $alignr ${user_names} 
+$font${color DimGray}User Consoles: $alignr ${user_terms} 
+
+${font Arial:bold:size=10}${color DeepSkyBlue}TIME ${color DarkSlateGray}${hr 2}
+
+${color DarkSlateGray} ${font :size=30}$alignc${time %H:%Mh}
+${voffset -30}${font :bold:size=10}$alignc${time %d %b. %Y}
+${font :bold:size=8}$alignc${time %A}

@@ -1,0 +1,40 @@
+[org/gnome/desktop/interface]
+clock-show-date=true
+clock-format='12h'
+clock-show-seconds=false
+icon-theme='gnome'
+gtk-im-module='gtk-im-context-simple:xim'
+
+[org/gnome/desktop/wm/preferences]
+auto-raise=false
+theme='Adwaita'
+
+[org/gnome/terminal/legacy]
+dark-theme=true
+schema-version=uint32 3
+
+[org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
+foreground-color='rgb(37,145,244)'
+visible-name='Money '
+palette=['rgb(0,0,0)', 'rgb(205,0,0)', 'rgb(0,205,0)', 'rgb(205,205,0)', 'rgb(30,144,255)', 'rgb(205,0,205)', 'rgb(0,205,205)', 'rgb(229,229,229)', 'rgb(76,76,76)', 'rgb(255,0,0)', 'rgb(0,255,0)', 'rgb(255,255,0)', 'rgb(70,130,180)', 'rgb(255,0,255)', 'rgb(0,255,255)', 'rgb(255,255,255)']
+use-system-font=false
+use-transparent-background=true
+use-theme-colors=false
+font='Monospace 12'
+scrollback-unlimited=true
+background-transparency-percent=20
+
+[org/gtk/settings/file-chooser]
+sort-column='name'
+clock-format='12h'
+sidebar-width=148
+window-position=(540, 340)
+show-size-column=true
+show-hidden=false
+window-size=(910, 682)
+sort-order='ascending'
+location-mode='path-bar'
+
+[org/gtk/settings/color-chooser]
+selected-color=(true, 0.1466888888888889, 0.56928599033816396, 0.95666666666666678, 1.0)
+custom-colors=[(0.1466888888888889, 0.56928599033816396, 0.95666666666666678, 1.0), (0.0, 1.0, 0.0, 1.0)]
