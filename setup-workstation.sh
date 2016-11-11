@@ -5,8 +5,8 @@ echo "Welcome cumorris...setting up your workstation now..."
 echo "Installing your selected packages..."
 if [ -e /etc/redhat-release ]; then
 	echo "This appears to be a RedHat based Distro, continuing with that in mind..."
-	sudo yum update -q
-	sudo yum install -qy epel-release conky vim openbox-libs htop screen git tint2 openbox gnome-terminal gnome-session 
+	sudo yum update -q -y
+	sudo yum install -q -y epel-release conky vim openbox-libs htop screen git tint2 openbox gnome-terminal gnome-session 
 else 
 	echo "This is probably a debian based distro, continuing with that in mind..."
 	sudo apt-get update
