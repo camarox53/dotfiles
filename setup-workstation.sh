@@ -64,7 +64,7 @@ echo "Config files copied into place."
 
 echo "Starting tint2 taskbar"
 echo "A ctrl+c may be required..."
-tint2 & 
+pkill tint2 && tint2 & 
 
 echo "Changing your display settings..."
 cat ~/dotfiles/dconf-config | dconf load /
