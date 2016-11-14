@@ -60,8 +60,11 @@ echo " "
 echo "#################################"
 echo "Copying your .files into place"
 
+mkdir -p ~/.vim/{colors,plugins}
 cp ~/dotfiles/.vimrc ~/.vimrc
 echo ".vimrc: Installed"
+
+cp ~/dotfiles/.vim/colors/shiny-white.vim ~/.vim/colors/shiny-white.vim
 
 cp ~/dotfiles/.bashrc ~/.bashrc
 source ~/.bashrc 
